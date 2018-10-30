@@ -19,3 +19,7 @@ Bootear el disco:
 	$ wget https://github.com/LautaroStraza/blob/master/install.sh
 	$ chmod +x install.sh
 	$ ./install.sh
+
+
+El script esta basado en el trabajo de https://github.com/abrochard/spartan-arch
+Dews!

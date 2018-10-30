@@ -6,7 +6,7 @@ loadkeys la-latin1
 #Configuro la hora del sistema
 timedatectl set-ntp true
 
-#Particiono los discos para un esquiema de BIOS/GPT
+#Particiono los discos para un esquema de BIOS/GPT
 parted -s -a optimal /dev/sda mklabel gpt unit mib mkpart primary 1 3 name 1 grub 
 parted -s -a optimal /dev/sda mkpart primary 3 2051 name 2 swap 
 parted -s -a optimal /dev/sda mkpart primary 2051 100% name 3 root 
@@ -27,6 +27,14 @@ pacstrap /mnt base base-devel
 
 #Genero fstab para el automontado de particiones
 genfstab -U /mnt >> /mnt/etc/fstab
+
+#Arch-chroot
+wget https://github.com/LautaroStraza/blob/master/chroot-install.sh -O /mnt/chroot-install.sh
+chmod +x /mnt/chroot-install.sh
+arch-chroot /mnt /bin/bash ./chroot-install.sh
+
+#Desmonto
+umount -R /mnt
 
 #Reinicio
 reboot
