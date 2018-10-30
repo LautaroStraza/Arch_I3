@@ -1,5 +1,8 @@
 # Arch_I3
 Automatización de la instalación de Arch + I3 en una máquina virtual.
+Necesario:
+	Instalar VirtualBox en la PC anfitrión.
+	Tener descargada una imagen de Arch Linux.
 
 Crear una máquina con VirtualBox de:
 	Memoria RAM: 1024 MB.
