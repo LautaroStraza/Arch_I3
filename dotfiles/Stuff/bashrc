@@ -1,0 +1,36 @@
+#------------------#
+# Bashrc de Straza #
+#------------------#
+
+# /home/lautaro/.bashrc
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+#------------------------------------------------
+
+#Alias
+alias ls='ls -hN --color=auto --group-directories-first'
+alias wifi='sudo wifi-menu'
+alias installpac='sudo pacman -S'
+alias searchpac='sudo pacman -Ss'
+alias updatepac='sudo pacman -Syyu'
+alias installaur='yaourt -S'
+alias searchaur='sudo yaourt -Ss'
+alias updateaur='yaourt -Syyu'
+alias starwars="telnet towel.blinkenlights.nl"
+alias nf="clear && neofetch"
+#------------------------------------
+
+#Funcion para Ejecutar ls cada vez que ingreso a un directorio nuevo.
+function cdls() {
+	cd "$@" && ls;
+}
+export -f cdls
+#Creo un alias para cambiar cd al uso de la funcion
+alias cd='cdls'
+#--------------------------------------------------------------------
+
+# Temas para el prompt:
+PS1='[\u@\h \W]\$ '
+
+#Dews!

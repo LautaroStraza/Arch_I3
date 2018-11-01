@@ -1,5 +1,7 @@
 #!/bin/sh
 
+#Configuración básica del sistema#
+
 #Configuración de la hora y región
 timedatectl set-ntp true
 ln -sf /usr/share/zoneinfo/America/Buenos_Aires /etc/localtime
@@ -21,12 +23,48 @@ echo 'ArchLinux' > /etc/hostname
 mkinitcpio -p linux
 
 #Instalación del bootloader
-pacman -S grub --noconfirm
+pacman -S --noconfirm grub intel-ucode
 grub-install --target=i386-pc /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
 
 #Algunos complementos para wifi si llegara a ser necesario
 #pacman -S --noconfirm wpa_supplicant ifplugd wpa_actiond dialog iw networkmanager
+
+#Instalación del entorno#
+
+#Programas herramientas
+pacman -S --noconfirm vim git net-tools wget curl tree
+
+#Programas para la interfaz gráfica
+pacman -S --noconfirm xorg xautolock xf86-input-synaptics xf86-video-intel mesa 
+pacman -S --noconfirm sddm i3 rofi dmenu ranger feh thunar chromium rxvt-unicode acpid
+
+#Habilito algunos servicios
+systemctl enable sddm.service
+systemctl enable acpid.service
+
+#Clono el repositorio para usar scripts mas simples que instalan y configuran programas y llamarlos desde aca#
+git clone https://github.com/LautaroStraza/Arch_I3 /tmp/Arch_I3
+
+
+
+#Eliminar el repositorio clonado
+rm -r /tmp/Arch_I3
+
+
+#Crear usuario y contraseña#
+
+#Visudo (le doy permiso al usuario para usar sudo)
+## pacman -S --noconfirm sudo
+## con sed -i/#wheel/wheel en el archivo visudo
+
+
+
+
+#Imprimir un mensaje que recuerde quitar el disco de la iso
+#Y esperar confirmacion
+
+
 
 #Salir
 exit
