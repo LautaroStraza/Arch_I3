@@ -1,10 +1,5 @@
 #!/bin/sh
 
-#Selección de mirrors
-cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
-sed -i 's/^#Server/Server/' /etc/pacman.d/mirrorlist.backup
-rankmirrors -n 6 /etc/pacman.d/mirrorlist.backup > /etc/pacman.d/mirrorlist
-
 #Configuración de la hora y región
 timedatectl set-ntp true
 ln -sf /usr/share/zoneinfo/America/Buenos_Aires /etc/localtime
