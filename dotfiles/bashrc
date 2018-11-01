@@ -2,8 +2,6 @@
 # Bashrc de Straza #
 #------------------#
 
-# /home/lautaro/.bashrc
-
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 #------------------------------------------------
@@ -14,10 +12,6 @@ alias wifi='sudo wifi-menu'
 alias installpac='sudo pacman -S'
 alias searchpac='sudo pacman -Ss'
 alias updatepac='sudo pacman -Syyu'
-alias installaur='yaourt -S'
-alias searchaur='sudo yaourt -Ss'
-alias updateaur='yaourt -Syyu'
-alias starwars="telnet towel.blinkenlights.nl"
 alias nf="clear && neofetch"
 #------------------------------------
 

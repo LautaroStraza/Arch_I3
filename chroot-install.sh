@@ -26,7 +26,7 @@ mkinitcpio -p linux
 pacman -S --noconfirm grub intel-ucode
 grub-install --target=i386-pc /dev/sda
 ##Revisar si puedo quitar el primer grub-mkconfig
-grub-mkconfig -o /boot/grub/grub.cfg
+#grub-mkconfig -o /boot/grub/grub.cfg
 sed -i 's/^GRUB_TIMEOUT=5/GRUB_TIMEOUT=0/' /etc/default/grub
 grub-mkconfig -o /boot/grub/grub.cfg
 
@@ -61,7 +61,7 @@ pacman -Syyu --noconfirm
 
 #Programas para la interfaz gráfica
 pacman -S --noconfirm xorg xorg-xinit xorg-xrdb xautolock xf86-input-synaptics xf86-video-intel mesa 
-pacman -S --noconfirm lxdm i3 rofi dmenu ranger feh thunar chromium rxvt-unicode acpid
+pacman -S --noconfirm lxdm i3 rofi dmenu ranger feh thunar chromium rxvt-unicode urxvt-perls acpid
 
 #Habilito servicios
 systemctl enable lxdm.service
@@ -101,11 +101,9 @@ sed -i 's/startlxde/i3/' /etc/lxdm/lxdm.conf
 sed -i 's/^# bg=\/usr\/share\/backgrounds\/default.png/bg=\/usr\/share\/wallpapers\/Lxdm_Wall.png/' /etc/lxdm/lxdm.conf
 
 #Programas herramientas
-pacman -S --noconfirm vim net-tools wget curl tree
+pacman -S --noconfirm vim net-tools wget curl tree neofetch
 
-#Para poder usar varios de los scripts viejos necesito yaourt y multilib
-
-
+#Falta terminar de configurar la estetica de lxdm
 #configuro el autologin en lxdm
 
 #Elimino el repositorio clonado
@@ -113,8 +111,6 @@ rm -r /tmp/Arch_I3
 
 #Imprimir un mensaje que diga " Instalacion finalizada Recuerde quitar el disco de la iso" " y una vez dentro agregue contraseñas"
 #Y esperar confirmacion
-
-
 
 #Salir
 exit 0
