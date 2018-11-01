@@ -26,22 +26,20 @@ mkinitcpio -p linux
 pacman -S --noconfirm grub intel-ucode
 grub-install --target=i386-pc /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
+sed -i 's/^GRUB_TIMEOUT=5/GRUB_TIMEOUT=0/' /etc/default/grub
 
 #Algunos complementos para wifi si llegara a ser necesario
 #pacman -S --noconfirm wpa_supplicant ifplugd wpa_actiond dialog iw networkmanager
 
-
 #Creación del usuario#
 pacman -S --noconfirm zsh
+clear
 echo "Ingrese su nombre de usuario: "
 read USUARIO
 echo "Su usuario nuevo es: ${USUARIO}"
 useradd -m -G wheel -s /bin/zsh $USUARIO
 
 #Instalación del entorno#
-
-#Programas herramientas
-pacman -S --noconfirm vim git net-tools wget curl tree virtualbox-guest-modules-arch virtualbox-guest-utils
 
 #Programas para la interfaz gráfica
 pacman -S --noconfirm xorg xautolock xf86-input-synaptics xf86-video-intel mesa 
@@ -50,8 +48,10 @@ pacman -S --noconfirm lxdm i3 rofi dmenu ranger feh thunar chromium rxvt-unicode
 #Habilito servicios
 systemctl enable lxdm.service
 systemctl enable acpid.service
+systemctl enable dhcpcd.service
 
 #Clono el repositorio
+pacman -S --noconfirm git
 git clone https://github.com/LautaroStraza/Arch_I3 /tmp/Arch_I3
 
 #Guardo los wallpapers
@@ -61,6 +61,7 @@ cp /tmp/Arch_I3/Imagenes/* /usr/share/wallpapers
 
 #Guardo dotfiles
 mkdir /home/$USUARIO/.config
+chown $USUARIO:$USUARIO /home/$USUARIO/.config
 cp -R dotfiles/i3 /home/$USUARIO/.config
 cp -R dotfiles/polybar /home/$USUARIO/.config
 chmod +x /home/$USUARIO/.config/i3/*.sh
@@ -76,9 +77,9 @@ sed -i 's/^# session/session/' /etc/lxdm/lxdm.conf
 sed -i 's/startlxde/i3/' /etc/lxdm/lxdm.conf
 sed -i 's/^# bg=\/usr\/share\/backgrounds\/default.png/bg=\/usr\/share\/wallpapers\/Lxdm_Wall.png/' /etc/lxdm/lxdm.conf
 
+#Programas herramientas
+pacman -S --noconfirm vim net-tools wget curl tree
 
-
-#Crear usuario y contraseña#
 
 #Para poder usar varios de los scripts viejos necesito yaourt y multilib
 

@@ -37,6 +37,6 @@ arch-chroot /mnt /bin/bash ./chroot-install.sh
 umount -R /mnt
 
 #Reinicio
-reboot
+poweroff
 
 exit 0
