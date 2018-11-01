@@ -29,7 +29,7 @@ pacstrap /mnt base base-devel
 genfstab -U /mnt >> /mnt/etc/fstab
 
 #Arch-chroot
-wget https://github.com/LautaroStraza/blob/master/chroot-install.sh -O /mnt/chroot-install.sh
+wget https://raw.githubusercontent.com/LautaroStraza/Arch_I3/master/chroot-install.sh -O /mnt/chroot-install.sh
 chmod +x /mnt/chroot-install.sh
 arch-chroot /mnt /bin/bash ./chroot-install.sh
 

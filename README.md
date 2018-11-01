@@ -7,7 +7,7 @@ Necesario:
 Crear una máquina con VirtualBox de:
 	Memoria RAM: 1024 MB.
 	Un disco duro virtual:
-		-Tipo vdi, y reservado dinámicamente. 
+		-Tipo vdi, reservado dinámicamente.
 		-10 GB.
 
 Configuraciones:
@@ -16,7 +16,8 @@ Configuraciones:
 	Red -> Habilitar adaptador de red: NAT.
 
 Bootear el disco:
-	$ wget https://github.com/LautaroStraza/blob/master/install.sh
+	$ loadkeys la-latin1		//el simbolo "-" se coloca con la tecla "?".
+	$ wget https://raw.githubusercontent.com/LautaroStraza/Arch_I3/master/install.sh
 	$ chmod +x install.sh
 	$ ./install.sh
 

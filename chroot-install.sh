@@ -31,7 +31,7 @@ grub-install --target=i386-pc /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
 
 #Algunos complementos para wifi si llegara a ser necesario
-pacman -S --noconfirm wpa_supplicant ifplugd wpa_actiond dialog iw networkmanager
+#pacman -S --noconfirm wpa_supplicant ifplugd wpa_actiond dialog iw networkmanager
 
 #Salir
 exit
