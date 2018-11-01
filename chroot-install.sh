@@ -51,22 +51,16 @@ sed -i 's/^# %wheel ALL=(ALL) NOPASSWD: ALL/%wheel ALL=(ALL) NOPASSWD: ALL/' /et
 #Configuro Pacman#
 
 #Agrego repositorios 32bits
+echo " " >> /etc/pacman.conf
 echo "[multilib]" >> /etc/pacman.conf
 echo "Include = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf
 echo " " >> /etc/pacman.conf
-#Agrego AUR
-echo "[archlinuxfr]" >> /etc/pacman.conf
-echo "SigLevel = Never" >> /etc/pacman.conf
-echo "Server = http://repo.archlinux.fr/$arch" >> /etc/pacman.conf
-echo " " >> /etc/pacman.conf
-#Instalo yaourt
 pacman -Syyu --noconfirm
-pacman -S --noconfirm yaourt
 
 #Instalación del entorno#
 
 #Programas para la interfaz gráfica
-pacman -S --noconfirm xorg xautolock xf86-input-synaptics xf86-video-intel mesa 
+pacman -S --noconfirm xorg xorg-xinit xorg-xrdb xautolock xf86-input-synaptics xf86-video-intel mesa 
 pacman -S --noconfirm lxdm i3 rofi dmenu ranger feh thunar chromium rxvt-unicode acpid
 
 #Habilito servicios
@@ -91,9 +85,11 @@ cp -R dotfiles/polybar /home/$USUARIO/.config
 chmod +x /home/$USUARIO/.config/i3/*.sh
 chmod +x /home/$USUARIO/.config/polybar/*.sh
 
+cp dotfiles/Xresources /home/$USUARIO/.Xresources
 cp dotfiles/bashrc /home/$USUARIO/.bashrc
 cp dotfiles/zshrc /home/$USUARIO/.zshrc
 cp dotfiles/vimrc /home/$USUARIO/.vimrc
+chmod 666 /home/$USUARIO/.Xresources
 chmod 666 /home/$USUARIO/.bashrc
 chmod 666 /home/$USUARIO/.zshrc
 chmod 666 /home/$USUARIO/.vimrc
