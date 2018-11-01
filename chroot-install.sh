@@ -37,11 +37,22 @@ pacman -S --noconfirm vim git net-tools wget curl tree
 
 #Programas para la interfaz gráfica
 pacman -S --noconfirm xorg xautolock xf86-input-synaptics xf86-video-intel mesa 
-pacman -S --noconfirm sddm i3 rofi dmenu ranger feh thunar chromium rxvt-unicode acpid
+pacman -S --noconfirm lxdm i3 rofi dmenu ranger feh thunar chromium rxvt-unicode acpid
 
 #Habilito algunos servicios
-systemctl enable sddm.service
+systemctl enable lxdm.service
 systemctl enable acpid.service
+
+#Configuro lxdm (el display manager)
+
+
+
+
+
+
+
+
+#Para poder usar varios de los scripts viejos necesito yaourt y multilib
 
 #Clono el repositorio para usar scripts mas simples que instalan y configuran programas y llamarlos desde aca#
 git clone https://github.com/LautaroStraza/Arch_I3 /tmp/Arch_I3
@@ -58,7 +69,7 @@ rm -r /tmp/Arch_I3
 ## pacman -S --noconfirm sudo
 ## con sed -i/#wheel/wheel en el archivo visudo
 
-
+#configuro el autologin en lxdm
 
 
 #Imprimir un mensaje que recuerde quitar el disco de la iso
