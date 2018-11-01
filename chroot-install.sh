@@ -80,15 +80,15 @@ cp /tmp/Arch_I3/Imagenes/* /usr/share/wallpapers
 #Guardo dotfiles
 mkdir /home/$USUARIO/.config
 chown $USUARIO:$USUARIO /home/$USUARIO/.config
-cp -R dotfiles/i3 /home/$USUARIO/.config
-cp -R dotfiles/polybar /home/$USUARIO/.config
+cp -R /tmp/Arch_I3/dotfiles/i3 /home/$USUARIO/.config
+cp -R /tmp/Arch_I3/dotfiles/polybar /home/$USUARIO/.config
 chmod +x /home/$USUARIO/.config/i3/*.sh
 chmod +x /home/$USUARIO/.config/polybar/*.sh
 
-cp dotfiles/Xresources /home/$USUARIO/.Xresources
-cp dotfiles/bashrc /home/$USUARIO/.bashrc
-cp dotfiles/zshrc /home/$USUARIO/.zshrc
-cp dotfiles/vimrc /home/$USUARIO/.vimrc
+cp /tmp/Arch_I3/dotfiles/Xresources /home/$USUARIO/.Xresources
+cp /tmp/Arch_I3/dotfiles/bashrc /home/$USUARIO/.bashrc
+cp /tmp/Arch_I3/dotfiles/zshrc /home/$USUARIO/.zshrc
+cp /tmp/Arch_I3/dotfiles/vimrc /home/$USUARIO/.vimrc
 chmod 666 /home/$USUARIO/.Xresources
 chmod 666 /home/$USUARIO/.bashrc
 chmod 666 /home/$USUARIO/.zshrc
