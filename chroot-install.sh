@@ -42,7 +42,7 @@ echo "## Creación de usuario ##"
 echo "Ingrese un nombre de usuario: "
 read USUARIO
 echo "Su usuario nuevo es: ${USUARIO}"
-useradd -m -g users -G wheel -s /bin/zsh $USUARIO
+useradd -m -G wheel -s /bin/zsh $USUARIO
 echo "Agregar contraseña para el usuario: ${USUARIO}"
 passwd ${USUARIO}
 pacman -S --noconfirm sudo
@@ -79,7 +79,6 @@ cp /tmp/Arch_I3/Imagenes/* /usr/share/wallpapers
 
 #Guardo dotfiles
 mkdir /home/$USUARIO/.config
-chown $USUARIO:$USUARIO /home/$USUARIO/.config
 cp -R /tmp/Arch_I3/dotfiles/i3 /home/$USUARIO/.config
 cp -R /tmp/Arch_I3/dotfiles/polybar /home/$USUARIO/.config
 chmod +x /home/$USUARIO/.config/i3/*.sh
@@ -93,6 +92,8 @@ chmod 666 /home/$USUARIO/.Xresources
 chmod 666 /home/$USUARIO/.bashrc
 chmod 666 /home/$USUARIO/.zshrc
 chmod 666 /home/$USUARIO/.vimrc
+
+chown -R $USUARIO:$USUARIO /home/$USUARIO
 
 #Configuro lxdm
 sed -i 's/^# numlock=0/numlock=1/' /etc/lxdm/lxdm.conf
