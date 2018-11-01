@@ -43,21 +43,21 @@ pacman -S --noconfirm lxdm i3 rofi dmenu ranger feh thunar chromium rxvt-unicode
 systemctl enable lxdm.service
 systemctl enable acpid.service
 
-#Configuro lxdm (el display manager)
-
-
-
-
-
-
-
-
 #Para poder usar varios de los scripts viejos necesito yaourt y multilib
 
 #Clono el repositorio para usar scripts mas simples que instalan y configuran programas y llamarlos desde aca#
 git clone https://github.com/LautaroStraza/Arch_I3 /tmp/Arch_I3
 
+#Guardo los wallpapers
+mkdir /usr/share/wallpapers
+chmod 777 /usr/share/wallpapers
+cp /tmp/Arch_I3/Imagenes/* /usr/share/wallpapers
 
+#Configuro lxdm
+sed -i 's/^# numlock=0/numlock=1/' /etc/lxdm/lxdm.conf
+sed -i 's/^# session/session/' /etc/lxdm/lxdm.conf
+sed -i 's/startlxde/i3/' /etc/lxdm/lxdm.conf
+sed -i 's/^# bg=\/usr\/share\/backgrounds\/default.png/bg=\/usr\/share\/wallpapers\/Lxdm_Wall.png/' /etc/lxdm/lxdm.conf
 
 #Eliminar el repositorio clonado
 rm -r /tmp/Arch_I3
