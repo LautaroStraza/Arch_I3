@@ -7,21 +7,18 @@
 #------------#
 
 # Font for window titles.
-font pango:Fira mono 12
+font pango: Anonymous Pro 14
 
 # Script para iniciar polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh 
 
 # Para cargar el fondo de pantalla usando feh
-exec_always --no-startup-id killall feh ; feh --bg-scale $HOME/.config/i3/Desktop_Wall.png
-# Esquema de colores para la terminal
-exec --no-startup-id wal -i  $HOME/.config/i3/Desktop_Wall.jpg -n ;
-exec_always --no-startup-id wal -R ;
+exec_always --no-startup-id killall feh ; feh --bg-scale /usr/share/wallpapers/Desktop_Wall.png
 
 # Bloqueo de pantalla
 # Instalar desde aur  i3lock-color-git
 bindsym $mod+p exec $HOME/.config/i3/lock.sh 
-# Bloqueo automatico 
+# Bloqueo automático
 exec_always --no-startup-id xautolock -time 5 -locker $HOME/.config/i3/lock.sh
 
 #---------------------------#
@@ -29,7 +26,9 @@ exec_always --no-startup-id xautolock -time 5 -locker $HOME/.config/i3/lock.sh
 #---------------------------#
 
 # Mod-key = Windows-key
-set $mod Mod4
+#set $mod Mod4
+# Mod-key = Alt-Key
+set $mod Mod1
 
 # Restart i3 inplace 
 bindsym $mod+Shift+r restart
@@ -115,9 +114,9 @@ workspace_auto_back_and_forth yes
 # Variables para organizar los colores
 
 set_from_resource $background i3wm.color0 #f0f0f0
-set_from_resource $background_alt i3wm.color5 #f0f0f0
-set_from_resource $foreground i3wm.color7 #f0f0f0
-set_from_resource $indicator i3wm.color7 #f0f0f0
+set_from_resource $background_alt i3wm.color2 #f0f0f0
+set_from_resource $foreground i3wm.foreground #f0f0f0
+set_from_resource $indicator i3wm.foreground #f0f0f0
 
 # class                	border 		 background	 text 		indicator 	child_border
 client.focused          $background_alt  $background_alt $foreground    $indicator 	$background_alt
@@ -207,13 +206,13 @@ for_window [class="Pavucontrol"] floating enable
 exec_always --no-startup-id killall compton ; compton --config $HOME/.config/i3/compton.conf
 
 # Para iniciar caffeine
-exec --no-startup-id killall caffeine ; caffeine &
+#exec --no-startup-id killall caffeine ; caffeine &
 
 # Owncloud
-exec --no-startup-id killall owncloud ; owncloud &
+#exec --no-startup-id killall owncloud ; owncloud &
 
 # Network Manager
-exec --no-startup-id killall nm-applet ; nm-applet &
+#exec --no-startup-id killall nm-applet ; nm-applet &
 #exec_always --no-startup-id nm-applet &
 
 #---------#
@@ -233,7 +232,7 @@ exec_always --no-startup-id $HOME/.config/i3/remap.sh &
 bindsym $mod+d exec rofi -show run 
 bindsym $mod+Tab exec rofi -show window
 
-# Start a Qterminal terminal
+# Iniciar terminal
 bindsym $mod+Return exec urxvt
 
 # Iniciar Ranger

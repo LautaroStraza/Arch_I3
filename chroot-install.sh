@@ -57,7 +57,7 @@ pacman -Syyu --noconfirm
 #Instalación del entorno#
 
 #Programas para la interfaz gráfica
-pacman -S --noconfirm xorg xorg-xinit xorg-xrdb xautolock xf86-input-synaptics xf86-video-intel mesa 
+pacman -S --noconfirm xorg xorg-xinit xorg-xrdb xautolock xf86-input-synaptics xf86-video-intel mesa gcc cmake
 pacman -S --noconfirm lxdm i3 rofi dmenu ranger feh thunar chromium rxvt-unicode urxvt-perls acpid compton
 pacman -S --noconfirm ttf-anonymous-pro ttf-dejavu ttf-font-awesome otf-font-awesome awesome-terminal-fonts
 #Para actualizar cache de fuentes
@@ -76,7 +76,7 @@ git clone https://github.com/LautaroStraza/Arch_I3 /tmp/Arch_I3
 #Guardo los wallpapers
 mkdir /usr/share/wallpapers
 chmod 666 /usr/share/wallpapers
-cp /tmp/Arch_I3/Imagenes/* /usr/share/wallpapers
+cp /tmp/Arch_I3/imagenes/* /usr/share/wallpapers
 
 #Guardo dotfiles
 mkdir /home/$USUARIO/.config
@@ -100,6 +100,14 @@ echo "set bell-style none" >> /home/$USUARIO/.inputrc
 
 chown -R $USUARIO:$USUARIO /home/$USUARIO
 
+#Istalar polybar desde github
+git clone --recursive https://github.com/jaagr/polybar /tmp/polybar
+mkdir /tmp/polybar/build
+cd /tmp/polybar/build
+cmake ..
+make install
+cd /
+
 #Configuro lxdm
 sed -i 's/^# numlock=0/numlock=1/' /etc/lxdm/lxdm.conf
 sed -i 's/^# session/session/' /etc/lxdm/lxdm.conf
@@ -114,6 +122,7 @@ pacman -S --noconfirm vim net-tools wget curl tree neofetch
 
 #Elimino el repositorio clonado
 rm -r /tmp/Arch_I3
+rm -r /tmp/polybar
 
 #Imprimir un mensaje que diga " Instalacion finalizada Recuerde quitar el disco de la iso" " y una vez dentro agregue contraseñas"
 #Y esperar confirmacion
