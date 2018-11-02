@@ -32,9 +32,20 @@ genfstab -U /mnt >> /mnt/etc/fstab
 wget https://raw.githubusercontent.com/LautaroStraza/Arch_I3/master/chroot-install.sh -O /mnt/chroot-install.sh
 chmod +x /mnt/chroot-install.sh
 arch-chroot /mnt /bin/bash ./chroot-install.sh
+rm /mnt/chroot-install.sh
 
 #Desmonto
 umount -R /mnt
+
+#Saludo
+clear
+echo
+echo "La instalación terminó, recordá quitar el disco de instalación Arch.iso" 
+echo "		antes de volver a iniciar la máquina virtual"
+echo
+echo
+echo "Lautaro Straza, Dews!"
+read
 
 #Reinicio
 poweroff

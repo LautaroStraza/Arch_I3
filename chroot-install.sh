@@ -75,8 +75,8 @@ git clone https://github.com/LautaroStraza/Arch_I3 /tmp/Arch_I3
 
 #Guardo los wallpapers
 mkdir /usr/share/wallpapers
-chmod 666 /usr/share/wallpapers
 cp /tmp/Arch_I3/imagenes/* /usr/share/wallpapers
+chmod -R 666 /usr/share/wallpapers
 
 #Guardo dotfiles
 mkdir /home/$USUARIO/.config
@@ -101,6 +101,7 @@ echo "set bell-style none" >> /home/$USUARIO/.inputrc
 chown -R $USUARIO:$USUARIO /home/$USUARIO
 
 #Istalar polybar desde github
+pacman -S --noconfirm python2 cairo libxcb xcb-proto xcb-util-image xcb-util-wm cmake gcc
 git clone --recursive https://github.com/jaagr/polybar /tmp/polybar
 mkdir /tmp/polybar/build
 cd /tmp/polybar/build
@@ -123,9 +124,6 @@ pacman -S --noconfirm vim net-tools wget curl tree neofetch
 #Elimino el repositorio clonado
 rm -r /tmp/Arch_I3
 rm -r /tmp/polybar
-
-#Imprimir un mensaje que diga " Instalacion finalizada Recuerde quitar el disco de la iso" " y una vez dentro agregue contraseñas"
-#Y esperar confirmacion
 
 #Salir
 exit 0
