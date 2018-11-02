@@ -59,6 +59,10 @@ pacman -Syyu --noconfirm
 #Programas para la interfaz gráfica
 pacman -S --noconfirm xorg xorg-xinit xorg-xrdb xautolock xf86-input-synaptics xf86-video-intel mesa 
 pacman -S --noconfirm lxdm i3 rofi dmenu ranger feh thunar chromium rxvt-unicode urxvt-perls acpid
+pacman -S --noconfirm ttf-anonymous-pro ttf-dejavu ttf-font-awesome otf-font-awesome awesome-terminal-fonts
+#Para actualizar cache de fuentes
+fc-cache
+#Para listar todas las fuentes instaladas: $fc-list
 
 #Habilito servicios
 systemctl enable lxdm.service
@@ -88,9 +92,11 @@ chmod 666 /home/$USUARIO/.Xresources
 chmod 666 /home/$USUARIO/.bashrc
 chmod 666 /home/$USUARIO/.vimrc
 
-#case insensitive para autocompletado en bash
+#Case insensitive para autocompletado en bash
 touch /home/$USUARIO/.inputrc
 echo "set completion-ignore-case on" >> /home/$USUARIO/.inputrc
+#Quitar el beep de error
+echo "set bell-style none" >> /home/$USUARIO/.inputrc
 
 chown -R $USUARIO:$USUARIO /home/$USUARIO
 
