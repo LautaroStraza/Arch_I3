@@ -2,9 +2,8 @@
 # Zshrc de Straza #
 #-----------------#
 
-#---------------------------------------#
 # Confguraciones de zsh-newuser-install #
-#---------------------------------------#
+#----------------------------------------
 
 HISTFILE=~/.histfile
 HISTSIZE=500
@@ -12,13 +11,25 @@ SAVEHIST=500
 unsetopt beep
 bindkey -v
 export KEYTIMEOUT=1
+
+# Buscador de historial con UP or DOWN
+#-------------------------------------
+autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+
+[[ -n "$key[Up]"   ]] && bindkey -- "$key[Up]"   up-line-or-beginning-search
+[[ -n "$key[Down]" ]] && bindkey -- "$key[Down]" down-line-or-beginning-search
+
 # End of lines configured by zsh-newuser-install
-#---------------------------------------........
+#-----------------------------------------------
 
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/usuario/.zshrc'
-autoload -Uz compinit
+autoload -Uz compinit 
 compinit
+# case-insensitive (all) completion
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 # End of lines added by compinstall
 #----------------------------------
 
@@ -60,7 +71,18 @@ else
   export EDITOR='vim'
 fi
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+#Prompt con git status
+autoload -Uz promptinit && promptinit
+autoload -U colors && colors
+# Load version control information
+autoload -Uz vcs_info
+precmd() { vcs_info }
+
+# Format the vcs_info_msg_0_ variable
+zstyle ':vcs_info:git:*' formats '<branch:%b>'
+ 
+# Set up prompt (with git branch name)
+setopt PROMPT_SUBST
+PROMPT='$fg[cyan]%n$reset_color$fg[cyan]@%m:${PWD/#$HOME/~}$reset_color$fg[green]${vcs_info_msg_0_}$reset_color$'
 
 #Dews!

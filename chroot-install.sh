@@ -25,8 +25,6 @@ mkinitcpio -p linux
 #Instalación del bootloader
 pacman -S --noconfirm grub intel-ucode
 grub-install --target=i386-pc /dev/sda
-##Revisar si puedo quitar el primer grub-mkconfig
-#grub-mkconfig -o /boot/grub/grub.cfg
 sed -i 's/^GRUB_TIMEOUT=5/GRUB_TIMEOUT=0/' /etc/default/grub
 grub-mkconfig -o /boot/grub/grub.cfg
 
@@ -36,13 +34,12 @@ grub-mkconfig -o /boot/grub/grub.cfg
 #Creación del usuario#
 
 #Usuario
-pacman -S --noconfirm zsh
 clear
 echo "## Creación de usuario ##"
 echo "Ingrese un nombre de usuario: "
 read USUARIO
 echo "Su usuario nuevo es: ${USUARIO}"
-useradd -m -G wheel -s /bin/zsh $USUARIO
+useradd -m -G wheel -s /bin/bash $USUARIO
 echo "Agregar contraseña para el usuario: ${USUARIO}"
 passwd ${USUARIO}
 pacman -S --noconfirm sudo
@@ -86,12 +83,14 @@ chmod +x /home/$USUARIO/.config/polybar/*.sh
 
 cp /tmp/Arch_I3/dotfiles/Xresources /home/$USUARIO/.Xresources
 cp /tmp/Arch_I3/dotfiles/bashrc /home/$USUARIO/.bashrc
-cp /tmp/Arch_I3/dotfiles/zshrc /home/$USUARIO/.zshrc
 cp /tmp/Arch_I3/dotfiles/vimrc /home/$USUARIO/.vimrc
 chmod 666 /home/$USUARIO/.Xresources
 chmod 666 /home/$USUARIO/.bashrc
-chmod 666 /home/$USUARIO/.zshrc
 chmod 666 /home/$USUARIO/.vimrc
+
+#case insensitive para autocompletado en bash
+touch /home/$USUARIO/.inputrc
+echo "set completion-ignore-case on" >> /home/$USUARIO/.inputrc
 
 chown -R $USUARIO:$USUARIO /home/$USUARIO
 
