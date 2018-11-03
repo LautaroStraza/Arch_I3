@@ -28,6 +28,7 @@ set matchtime=5	 	" Bracket blinking.
 set history=50
 set ruler           " Show the cursor position all the time
 set laststatus=2    " Always display the status line
+set hlsearch
 
 
 "------------"

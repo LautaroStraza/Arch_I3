@@ -24,12 +24,12 @@ rofi.padding: 350
 
 rofi.color-enabled: true
 !                  background, border_color, separator_color
-rofi.color-window: #1e1f29,    #396f53,      #afe1d2
+rofi.color-window: #1d282f,    #396f5e,      #afe1d2
 
 !                  background, foreground, background  alt, highlight background, highlight foreground
-rofi.color-normal: #1e1f29,    #afe1d2,    #1e1f29,         #396f53,              #ffffff
-rofi.color-active: #1e1f29,    #afe1d2,    #1e1f29,         #396f53,              #ffffff
-rofi.color-urgent: #1e1f29,    #afe1d2,    #1e1f29,         #396f53,              #ffffff
+rofi.color-normal: #1d282f,    #afe1d2,    #1d282f,         #396f5e,              #ffffff
+rofi.color-active: #1d282f,    #afe1d2,    #1d282f,         #396f5e,              #ffffff
+rofi.color-urgent: #1d282f,    #afe1d2,    #1d282f,         #396f5e,              #ffffff
 
 ! -----------------------------------------------------!
 !                     URXVT Settings                   !
@@ -69,11 +69,11 @@ URxvt.url-select.launcher: /usr/bin/chromium
 ! ----------------------------------------------!
 
 *.foreground:   #afe1d2
-*.background:   #282a36
+*.background:   #151d22
 *.cursorColor:  #2d4944
 
 ! black
-*.color0:       #1e1f29
+*.color0:       #1d282f
 *.color8:       #344048
 
 ! red
@@ -81,7 +81,7 @@ URxvt.url-select.launcher: /usr/bin/chromium
 *.color9:       #874272
 
 ! green
-*.color2:       #396f53
+*.color2:       #396f5e
 *.color10:      #448773
 
 ! yellow
@@ -94,11 +94,11 @@ URxvt.url-select.launcher: /usr/bin/chromium
 
 ! magenta
 *.color5:       #613a73
-*.color13:      #794b87
+*.color13:      #207ba2
 
 ! cyan
 *.color6:       #1c6689
-*.color14:      #794b87
+*.color14:      #207ba2
 
 ! white
 *.color7:       #93cfbd

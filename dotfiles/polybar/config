@@ -47,7 +47,7 @@ font-3 = Wuncon Siji:pixelsize=12;2
 
 modules-left = i3
 modules-center = date
-modules-right = battery temperature powermenu
+modules-right = volume
 
 tray-position = right
 tray-padding = 2
