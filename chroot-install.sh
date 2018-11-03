@@ -57,15 +57,14 @@ pacman -Syyu --noconfirm
 #Instalación del entorno#
 
 #Programas para la interfaz gráfica
-pacman -S --noconfirm xorg xorg-xinit xorg-xrdb xautolock xf86-input-synaptics xf86-video-intel mesa gcc cmake
-pacman -S --noconfirm lxdm i3 rofi dmenu ranger feh thunar chromium rxvt-unicode urxvt-perls acpid compton
+pacman -S --noconfirm xorg xorg-xinit xorg-xrdb xautolock numlockx xf86-input-synaptics xf86-video-intel mesa gcc cmake
+pacman -S --noconfirm i3 rofi dmenu ranger feh thunar chromium rxvt-unicode urxvt-perls acpid compton
 pacman -S --noconfirm ttf-anonymous-pro ttf-dejavu ttf-font-awesome otf-font-awesome awesome-terminal-fonts
 #Para actualizar cache de fuentes
 fc-cache
 #Para listar todas las fuentes instaladas: $fc-list
 
 #Habilito servicios
-systemctl enable lxdm.service
 systemctl enable acpid.service
 systemctl enable dhcpcd.service
 
@@ -76,7 +75,7 @@ git clone https://github.com/LautaroStraza/Arch_I3 /tmp/Arch_I3
 #Guardo los wallpapers
 mkdir /usr/share/wallpapers
 cp /tmp/Arch_I3/imagenes/* /usr/share/wallpapers
-chmod -R 666 /usr/share/wallpapers
+chmod -R 777 /usr/share/wallpapers
 
 #Guardo dotfiles
 mkdir /home/$USUARIO/.config
@@ -86,9 +85,11 @@ chmod +x /home/$USUARIO/.config/i3/*.sh
 chmod +x /home/$USUARIO/.config/polybar/*.sh
 
 cp /tmp/Arch_I3/dotfiles/Xresources /home/$USUARIO/.Xresources
+cp /tmp/Arch_I3/dotfiles/xinitrc /home/$USUARIO/.xinitrc
 cp /tmp/Arch_I3/dotfiles/bashrc /home/$USUARIO/.bashrc
 cp /tmp/Arch_I3/dotfiles/vimrc /home/$USUARIO/.vimrc
 chmod 666 /home/$USUARIO/.Xresources
+chmod 666 /home/$USUARIO/.xinitrc
 chmod 666 /home/$USUARIO/.bashrc
 chmod 666 /home/$USUARIO/.vimrc
 
@@ -117,9 +118,6 @@ sed -i 's/^# bg=\/usr\/share\/backgrounds\/default.png/bg=\/usr\/share\/wallpape
 
 #Programas herramientas
 pacman -S --noconfirm vim net-tools wget curl tree neofetch
-
-#Falta terminar de configurar la estetica de lxdm
-#configuro el autologin en lxdm
 
 #Elimino el repositorio clonado
 rm -r /tmp/Arch_I3
