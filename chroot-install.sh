@@ -40,8 +40,8 @@ echo "Ingrese un nombre de usuario: "
 read USUARIO
 echo "Su usuario nuevo es: ${USUARIO}"
 useradd -m -G wheel -s /bin/bash $USUARIO
-echo "Agregar contraseña para el usuario: ${USUARIO}"
-passwd ${USUARIO}
+#echo "Agregar contraseña para el usuario: ${USUARIO}"
+#passwd ${USUARIO}
 pacman -S --noconfirm sudo
 sed -i 's/^# %wheel ALL=(ALL) NOPASSWD: ALL/%wheel ALL=(ALL) NOPASSWD: ALL/' /etc/sudoers
 
@@ -57,9 +57,9 @@ pacman -Syyu --noconfirm
 #Instalación del entorno#
 
 #Programas para la interfaz gráfica
-pacman -S --noconfirm xorg xorg-xinit xorg-xrdb xautolock numlockx xf86-input-synaptics xf86-video-intel mesa gcc cmake
-pacman -S --noconfirm i3 i3lock rofi dmenu ranger feh thunar chromium rxvt-unicode urxvt-perls acpid compton
-pacman -S --noconfirm ttf-anonymous-pro ttf-dejavu ttf-font-awesome otf-font-awesome awesome-terminal-fonts
+pacman -S --noconfirm xorg xorg-xinit xorg-xrdb xautolock numlockx xorg-xrandr arandr xf86-input-synaptics xf86-video-intel mesa gcc cmake alsa alsa-utils alsa-plugins alsa-firmware pulseaudio pulseaudio-alsa 
+pacman -S --noconfirm i3 i3lock rofi dmenu ranger feh thunar chromium pepper-flash rxvt-unicode urxvt-perls acpid compton cbatticon
+pacman -S --noconfirm ttf-anonymous-pro ttf-dejavu ttf-font-awesome otf-font-awesome awesome-terminal-fonts 
 #Para actualizar cache de fuentes
 fc-cache
 #Para listar todas las fuentes instaladas: $fc-list

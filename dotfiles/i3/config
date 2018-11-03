@@ -196,6 +196,7 @@ for_window [window_role="pop-up"] floating enable
 # Open specific applications in floating mode
 for_window [class="Lxappearance"] floating enable
 for_window [class="Pavucontrol"] floating enable
+for_window [class="Arandr"] floating enable
 
 #--------------------#
 # Iniciar Automatico #
@@ -203,6 +204,9 @@ for_window [class="Pavucontrol"] floating enable
 
 # Para poder usar transparencia en las ventanas intalar compton
 #exec_always --no-startup-id killall compton ; compton --config $HOME/.config/i3/compton.conf
+
+# Para iniciar icono de bateria
+##exec --no-startup-id killall cbatticon ; cbatticon &
 
 # Para iniciar caffeine
 #exec --no-startup-id killall caffeine ; caffeine &
