@@ -28,8 +28,8 @@ fi
 
 #Agregar xscreensaver
 #xscreensaver &
-#Agregar numlockx
-#numlockx &
+#Iniciar numlockx
+numlockx &
 
 #Inicio i3
 exec i3

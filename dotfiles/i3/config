@@ -16,10 +16,9 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id killall feh ; feh --bg-scale /usr/share/wallpapers/Desktop_Wall.png
 
 # Bloqueo de pantalla
-# Instalar desde aur  i3lock-color-git
 bindsym $mod+p exec $HOME/.config/i3/lock.sh 
 # Bloqueo automático
-exec_always --no-startup-id xautolock -time 5 -locker $HOME/.config/i3/lock.sh
+exec_always --no-startup-id xautolock -time 10 -locker $HOME/.config/i3/lock.sh
 
 #---------------------------#
 # Configuraciones Generales #
@@ -239,6 +238,6 @@ bindsym $mod+Return exec urxvt
 bindsym $mod+Shift+Return exec urxvt -e ranger
 
 # Iniciar Chrome
-bindsym $mod+c exec google-chrome-stable 
+bindsym $mod+c exec chromium
 
 # Dews!

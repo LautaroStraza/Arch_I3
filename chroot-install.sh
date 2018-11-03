@@ -58,7 +58,7 @@ pacman -Syyu --noconfirm
 
 #Programas para la interfaz gráfica
 pacman -S --noconfirm xorg xorg-xinit xorg-xrdb xautolock numlockx xf86-input-synaptics xf86-video-intel mesa gcc cmake
-pacman -S --noconfirm i3 rofi dmenu ranger feh thunar chromium rxvt-unicode urxvt-perls acpid compton
+pacman -S --noconfirm i3 i3lock rofi dmenu ranger feh thunar chromium rxvt-unicode urxvt-perls acpid compton
 pacman -S --noconfirm ttf-anonymous-pro ttf-dejavu ttf-font-awesome otf-font-awesome awesome-terminal-fonts
 #Para actualizar cache de fuentes
 fc-cache
