@@ -52,7 +52,7 @@ URxvt*dynamicColors: true
 URxvt*termName: rxvt-unicode
 URxvt.title:   Urxvt
 URxvt.transparent: true
-URxvt.shading: 20
+URxvt.shading: 5
 
 ! Extras
 URxvt.perl-ext-common:  default,matched,clipboard,url-select
