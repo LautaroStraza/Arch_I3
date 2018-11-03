@@ -112,12 +112,6 @@ cmake ..
 make install
 cd /
 
-#Configuro lxdm
-sed -i 's/^# numlock=0/numlock=1/' /etc/lxdm/lxdm.conf
-sed -i 's/^# session/session/' /etc/lxdm/lxdm.conf
-sed -i 's/startlxde/i3/' /etc/lxdm/lxdm.conf
-sed -i 's/^# bg=\/usr\/share\/backgrounds\/default.png/bg=\/usr\/share\/wallpapers\/Lxdm_Wall.png/' /etc/lxdm/lxdm.conf
-
 #Programas herramientas
 pacman -S --noconfirm vim net-tools wget curl tree neofetch
 

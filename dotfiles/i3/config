@@ -203,7 +203,7 @@ for_window [class="Pavucontrol"] floating enable
 #--------------------#
 
 # Para poder usar transparencia en las ventanas intalar compton
-exec_always --no-startup-id killall compton ; compton --config $HOME/.config/i3/compton.conf
+#exec_always --no-startup-id killall compton ; compton --config $HOME/.config/i3/compton.conf
 
 # Para iniciar caffeine
 #exec --no-startup-id killall caffeine ; caffeine &
