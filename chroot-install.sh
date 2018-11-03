@@ -84,10 +84,12 @@ cp -R /tmp/Arch_I3/dotfiles/polybar /home/$USUARIO/.config
 chmod +x /home/$USUARIO/.config/i3/*.sh
 chmod +x /home/$USUARIO/.config/polybar/*.sh
 
+cp /tmp/Arch_I3/dotfiles/bash_profile /home/$USUARIO/.bash_profile
 cp /tmp/Arch_I3/dotfiles/Xresources /home/$USUARIO/.Xresources
 cp /tmp/Arch_I3/dotfiles/xinitrc /home/$USUARIO/.xinitrc
 cp /tmp/Arch_I3/dotfiles/bashrc /home/$USUARIO/.bashrc
 cp /tmp/Arch_I3/dotfiles/vimrc /home/$USUARIO/.vimrc
+chmod 666 /home/$USUARIO/.bash_profile
 chmod 666 /home/$USUARIO/.Xresources
 chmod 666 /home/$USUARIO/.xinitrc
 chmod 666 /home/$USUARIO/.bashrc
