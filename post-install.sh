@@ -10,6 +10,10 @@ vim +PluginInstall +qall
 #Desmutear alsa
 amixer sset Master unmute
 
+#Creo carpetas del usuario
+sudo pacman -S --noconfirm xdg-user-dirs
+xdg-user-dirs-update
+
 #Ejecutar arandr para ajustar la resolución de pantalla
 clear
 echo

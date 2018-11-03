@@ -106,13 +106,6 @@ echo "set completion-ignore-case on" >> /home/$USUARIO/.inputrc
 #Quitar el beep de error
 echo "set bell-style none" >> /home/$USUARIO/.inputrc
 
-#Creo carpetas del home del usuario
-mkdir /home/$USUARIO/Documentos
-mkdir /home/$USUARIO/Descargas
-mkdir /home/$USUARIO/Imágenes
-mkdir /home/$USUARIO/Música
-mkdir /home/$USUARIO/Videos
-
 #Asigno nuevo propietario 
 chown -R $USUARIO:$USUARIO /home/$USUARIO
 
