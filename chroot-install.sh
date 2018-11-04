@@ -118,9 +118,12 @@ cmake ..
 make install
 cd /
 
-#Guardo el script post-install.sh
+#Guardo el script post-install.sh e install-latex.sh
+cp /tmp/Arch_I3/install-latex.sh /home/$USUARIO/
 cp /tmp/Arch_I3/post-install.sh /home/$USUARIO/
+chown $USUARIO:$USUARIO /home/$USUARIO/install-latex.sh
 chown $USUARIO:$USUARIO /home/$USUARIO/post-install.sh
+chmod 777 /home/$USUARIO/install-latex.sh
 chmod 777 /home/$USUARIO/post-install.sh
 
 #Elimino el repositorio clonado
