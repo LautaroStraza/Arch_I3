@@ -28,8 +28,9 @@ grub-install --target=i386-pc /dev/sda
 sed -i 's/^GRUB_TIMEOUT=5/GRUB_TIMEOUT=0/' /etc/default/grub
 grub-mkconfig -o /boot/grub/grub.cfg
 
-#Algunos complementos para wifi si llegara a ser necesario
-#pacman -S --noconfirm wpa_supplicant ifplugd wpa_actiond dialog iw networkmanager
+#Complementos para wifi
+pacman -S --noconfirm wpa_supplicant ifplugd wpa_actiond dialog iw networkmanager
+systemctl enable NetworkManager.service
 
 #Creación del usuario#
 
