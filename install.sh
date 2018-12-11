@@ -25,7 +25,7 @@ echo
 loadkeys la-latin1
 
 #Ingreso de USUARIO y CLAVE
-OPCION="S"
+OPCION="N"
 while  [ "$OPCION" = "N" ] || [ "$OPCION" = "n" ]; do
     echo -n "Ingrese un nombre para el nuevo usuario: "
     read NOMBRE
