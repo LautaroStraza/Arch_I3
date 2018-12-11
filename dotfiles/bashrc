@@ -1,4 +1,9 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
+#    _____  __
+#   / ___/ / /_ _____ ____ _ ____  ____ _
+#   \__ \ / __// ___// __ `//_  / / __ `/
+#  ___/ // /_ / /   / /_/ /  / /_/ /_/ /
+# /____/ \__//_/    \__,_/  /___/\__,_/
+#
 
 #------------------#
 # Bashrc de Ubuntu #
@@ -57,13 +62,6 @@ if [ -n "$force_color_prompt" ]; then
 	color_prompt=
     fi
 fi
-
-if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-fi
-unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
@@ -128,7 +126,7 @@ fi
 
 #Alias
 alias ls='ls -hN --color=auto --group-directories-first'
-alias wifi='sudo wifi-menu'
+alias wifi='nmtui'
 alias installpac='sudo pacman -S'
 alias searchpac='sudo pacman -Ss'
 alias updatepac='sudo pacman -Syyu'
@@ -143,5 +141,8 @@ export -f cdls
 #Creo un alias para cambiar cd al uso de la funcion
 alias cd='cdls'
 #--------------------------------------------------------------------
+
+#Prompt
+PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 
 #Dews!

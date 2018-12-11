@@ -2,6 +2,15 @@
 #include ".extend.Xresources"
 #endif
 
+!    _____  __
+!   / ___/ / /_ _____ ____ _ ____  ____ _
+!   \__ \ / __// ___// __ `//_  / / __ `/
+!  ___/ // /_ / /   / /_/ /  / /_/ /_/ /
+! /____/ \__//_/    \__,_/  /___/\__,_/
+!
+
+!! xrdb -load ~/.Xresources
+
 ! ----------------------------------------------------!
 !                      ROFI Settings                  !
 ! ----------------------------------------------------!
@@ -36,36 +45,36 @@ rofi.color-urgent: #1d282f,    #afe1d2,    #1d282f,         #396f5e,            
 ! -----------------------------------------------------!
 
 ! Fonts
-URxvt.font: xft:Anonymous Pro:size=14,style=regular
-URxvt.boldFont: xft:Anonymous Pro B:size=14,style=bold
-URxvt.italicFont: xft:Anonymous Pro I:size=14,style=italic
-URxvt.boldItalicFont: xft:Anonymous Pro BI:size=14,style=bold italic
-!URxvt.letterSpace: -1
-URxvt.letterSpace: 0
+URxvt*font: xft:DejaVu Sans Mono:pixelsize=15:antialias=true:hinting=true
+URxvt*boldFont: xft:DejaVu Sans Mono:bold:pixelsize=15:antialias=true:hinting=true
+URxvt*italicFont: xft:DejaVu Sans Mono:italic:pixelsize=15:antialias=true:hinting=true
+URxvt*boldItalicFont: xft:DejaVu Sans Mono:bold:italic:pixelsize=15:antialias=true:hinting=true
+URxvt*letterSpace: 0
 
 ! Interface
-URxvt*borderless: true
-URxvt.internalBorder: 10
-URxvt*scrollBar: false
-URxvt*saveLines: 1000
-URxvt*dynamicColors: true
-URxvt*termName: rxvt-unicode
-URxvt.title:   Urxvt
-URxvt.transparent: true
-URxvt.shading: 5
+URxvt*borderless:       true
+URxvt*internalBorder:   10
+URxvt*scrollBar:        false
+URxvt*saveLines:        1000
+URxvt*dynamicColors:    true
+URxvt*termName:         rxvt-unicode
+URxvt*title:            Urxvt
+URxvt*transparent:      false
+URxvt*depth:            32
+URxvt.background:       [90]#151d22
 
 ! Extras
-URxvt.perl-ext-common:  default,matched,clipboard,url-select
-URxvt.urlLauncher:      /usr/bin/chromium
-URxvt.matcher.button:   1 
-URxvt.keysym.M-c:   perl:clipboard:copy
-URxvt.keysym.M-v:   perl:clipboard:paste
-URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
-URxvt.keysym.M-u:   perl:url-select:select_next
-URxvt.url-select.launcher: /usr/bin/chromium
+URxvt.keysym.Control-p:   perl:clipboard:paste
+URxvt.keysym.Control-y:   perl:clipboard:copy
+URxvt*perl-ext-common:    default,matched,clipboard,url-select,selection-to-clipboard
+URxvt*urlLauncher:        /usr/bin/chromium
+URxvt*matcher.button:     1
+URxvt*keysym.M-C-v:       perl:clipboard:paste_escaped
+URxvt*keysym.M-u:         perl:url-select:select_next
+URxvt*url-select.launcher:/usr/bin/chromium
 
 ! ----------------------------------------------!
-!                     URXVT Colors 		!
+!                   URXVT Colors 		        !
 ! ----------------------------------------------!
 
 *.foreground:   #afe1d2

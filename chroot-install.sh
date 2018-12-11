@@ -47,8 +47,7 @@ systemctl enable NetworkManager.service
 
 #Usuario
 useradd -m -G wheel -s /bin/bash $USUARIO
-passwd ${USUARIO}
-echo ${USUARIO}':'${CLAVE} | chpasswd
+echo "${USUARIO}:${CLAVE}" | chpasswd
 pacman -S --noconfirm sudo
 sed -i 's/^# %wheel ALL=(ALL) NOPASSWD: ALL/%wheel ALL=(ALL) NOPASSWD: ALL/' /etc/sudoers
 

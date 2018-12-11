@@ -1,4 +1,12 @@
 #!/bin/sh
+
+#    _____  __
+#   / ___/ / /_ _____ ____ _ ____  ____ _
+#   \__ \ / __// ___// __ `//_  / / __ `/
+#  ___/ // /_ / /   / /_/ /  / /_/ /_/ /
+# /____/ \__//_/    \__,_/  /___/\__,_/
+#
+
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
@@ -14,9 +22,6 @@ if [ -f "$userresources" ]; then
     xrdb -merge "$userresources"
 fi
 
-# Teclado latinoamericano para la interfaz gráfica
-setxkbmap latam &
-
 # start some nice programs
 
 if [ -d /etc/X11/xinit/xinitrc.d ] ; then
@@ -26,8 +31,9 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-#Agregar xscreensaver
-#xscreensaver &
+# Teclado latinoamericano para la interfaz gráfica
+setxkbmap latam &
+
 #Iniciar numlockx
 numlockx &
 

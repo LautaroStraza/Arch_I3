@@ -1,4 +1,4 @@
-# Arch_I3
+# Arch-I3
 Automatización de la instalación de Arch + I3 en una máquina virtual.
 
 ### Necesario:
@@ -19,7 +19,7 @@ Automatización de la instalación de Arch + I3 en una máquina virtual.
 ### Iniciar máquina virtual:
 ```
 	$ loadkeys la-latin1		//el simbolo "-" se coloca con la tecla "?".
-	$ wget https://raw.githubusercontent.com/LautaroStraza/Arch_I3/master/install.sh
+	$ wget https://raw.githubusercontent.com/lautarostraza/arch-i3/master/install.sh
 	$ chmod +x install.sh
 	$ ./install.sh
 ```

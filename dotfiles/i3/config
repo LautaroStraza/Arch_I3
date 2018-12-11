@@ -2,6 +2,13 @@
 #---------- STRAZA I3-GAPS CONFIG FILE ----------#
 #------------------------------------------------#
 
+#       _____  __
+#      / ___/ / /_ _____ ____ _ ____  ____ _
+#      \__ \ / __// ___// __ `//_  / / __ `/
+#     ___/ // /_ / /   / /_/ /  / /_/ /_/ /
+#    /____/ \__//_/    \__,_/  /___/\__,_/
+#
+
 #------------#
 # Apariencia #
 #------------#
@@ -10,13 +17,13 @@
 font pango: Anonymous Pro 14
 
 # Script para iniciar polybar
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh 
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Para cargar el fondo de pantalla usando feh
 exec_always --no-startup-id killall feh ; feh --bg-scale /usr/share/wallpapers/Desktop_Wall.png
 
 # Bloqueo de pantalla
-bindsym $mod+p exec $HOME/.config/i3/lock.sh 
+bindsym $mod+p exec $HOME/.config/i3/lock.sh
 # Bloqueo automático
 exec_always --no-startup-id xautolock -time 10 -locker $HOME/.config/i3/lock.sh
 
@@ -29,14 +36,14 @@ exec_always --no-startup-id xautolock -time 10 -locker $HOME/.config/i3/lock.sh
 # Mod-key = Alt-Key
 set $mod Mod1
 
-# Restart i3 inplace 
+# Restart i3 inplace
 bindsym $mod+Shift+r restart
 
 # Kill focused window
 bindsym $mod+q kill
 
 # Split in horizontal orientation
-bindsym $mod+b split h 
+bindsym $mod+b split h
 
 # Split in vertical orientation
 bindsym $mod+v split v
@@ -100,7 +107,7 @@ bindsym $mod+Shift+5 move container to workspace $wsp5
 bindsym $mod+Shift+6 move container to workspace $wsp6
 bindsym $mod+Shift+7 move container to workspace $wsp7
 bindsym $mod+Shift+8 move container to workspace $wsp8
-bindsym $mod+Shift+9 move container to workspace $wsp9 
+bindsym $mod+Shift+9 move container to workspace $wsp9
 bindsym $mod+Shift+0 move container to workspace $wsp10
 
 # Workspace back_and_forth
@@ -141,8 +148,8 @@ for_window [class="^.*"] border pixel 5
 #assign [class="Thunar"]                  $wsp4
 #assign [class="VirtualBox"]              $wsp7
 
-# Tamaño gaps 
-gaps inner 2 
+# Tamaño gaps
+gaps inner 2
 gaps outer 2
 #smart_gaps on
 hide_edge_borders both
@@ -159,7 +166,7 @@ bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
-# Resize window 
+# Resize window
 bindsym $mod+Left resize shrink width 10 px or 10 ppt
 bindsym $mod+Down resize grow height 10 px or 10 ppt
 bindsym $mod+Up   resize shrink height 10 px or 10 ppt
@@ -180,7 +187,7 @@ bindsym $mod+Shift+space floating toggle
 # Change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
-# Floatin Windows Config 
+# Floatin Windows Config
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 # Floating windows Size
@@ -189,9 +196,6 @@ floating_maximum_size 1300 x 700
 
 # Float browser pop-ups
 for_window [window_role="pop-up"] floating enable
-
-# Focus the parent container
-#bindsym $mod+w focus parent
 
 # Open specific applications in floating mode
 for_window [class="Lxappearance"] floating enable
@@ -203,7 +207,7 @@ for_window [class="Arandr"] floating enable
 #--------------------#
 
 # Para poder usar transparencia en las ventanas intalar compton
-#exec_always --no-startup-id killall compton ; compton --config $HOME/.config/i3/compton.conf
+exec_always --no-startup-id killall compton; compton -f
 
 # Para iniciar icono de bateria
 ##exec --no-startup-id killall cbatticon ; cbatticon &
@@ -222,7 +226,7 @@ for_window [class="Arandr"] floating enable
 # Scripts #
 #---------#
 
-# Script para remapping 
+# Script para remapping
 # Add ESC-CAPS
 # Add keyboard speed
 exec_always --no-startup-id $HOME/.config/i3/remap.sh &
@@ -232,7 +236,7 @@ exec_always --no-startup-id $HOME/.config/i3/remap.sh &
 #----------------------#
 
 # Rofi reemplazando a d-menu
-bindsym $mod+d exec rofi -show run 
+bindsym $mod+d exec rofi -show run
 bindsym $mod+Tab exec rofi -show window
 
 # Iniciar terminal
@@ -244,4 +248,5 @@ bindsym $mod+Shift+Return exec urxvt -e ranger
 # Iniciar Chrome
 bindsym $mod+c exec chromium
 
+# vim:filetype=i3
 # Dews!
