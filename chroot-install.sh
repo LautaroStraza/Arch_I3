@@ -1,4 +1,15 @@
-#!/bin/sh
+#!/bin/bash
+
+#    _____  __
+#   / ___/ / /_ _____ ____ _ ____  ____ _
+#   \__ \ / __// ___// __ `//_  / / __ `/
+#  ___/ // /_ / /   / /_/ /  / /_/ /_/ /
+# /____/ \__//_/    \__,_/  /___/\__,_/
+#
+
+#Recibo USUARIO y CLAVE
+USUARIO=$1
+CLAVE=$2
 
 #Configuración básica del sistema#
 
@@ -14,7 +25,7 @@ locale-gen
 echo 'LANG=es_AR.UTF-8' > /etc/locale.conf
 
 #Layout del teclado para las TTY
-echo 'KEYMAP=la-latin1' > /etc/vconsole.conf	
+echo 'KEYMAP=la-latin1' > /etc/vconsole.conf
 
 #Configuración del hostname
 echo 'ArchLinux' > /etc/hostname
@@ -35,14 +46,9 @@ systemctl enable NetworkManager.service
 #Creación del usuario#
 
 #Usuario
-clear
-echo "## Creación de usuario ##"
-echo "Ingrese un nombre de usuario: "
-read USUARIO
-echo "Su usuario nuevo es: ${USUARIO}"
 useradd -m -G wheel -s /bin/bash $USUARIO
-echo "Agregar contraseña para el usuario: ${USUARIO}"
 passwd ${USUARIO}
+echo ${USUARIO}':'${CLAVE} | chpasswd
 pacman -S --noconfirm sudo
 sed -i 's/^# %wheel ALL=(ALL) NOPASSWD: ALL/%wheel ALL=(ALL) NOPASSWD: ALL/' /etc/sudoers
 
@@ -61,10 +67,10 @@ pacman -Syyu --noconfirm
 pacman -S --noconfirm xorg xorg-xinit xorg-xrdb xautolock numlockx xorg-xrandr \
 	arandr xf86-input-synaptics xf86-video-intel mesa gcc cmake alsa alsa-utils \
 	alsa-plugins alsa-firmware pulseaudio pulseaudio-alsa \
-	i3 i3lock rofi dmenu ranger feh thunar chromium pepper-flash rxvt-unicode \
+	i3 i3lock rofi dmenu ranger feh chromium pepper-flash rxvt-unicode \
 	urxvt-perls acpid compton cbatticon ttf-anonymous-pro ttf-dejavu \
-	ttf-font-awesome otf-font-awesome awesome-terminal-fonts vim net-tools wget \
-	curl tree screenfetch neofetch mupdf evince eog
+	ttf-font-awesome otf-font-awesome awesome-terminal-fonts gvim net-tools wget \
+	curl tree screenfetch neofetch zathura eog
 
 #Para actualizar cache de fuentes
 fc-cache
@@ -94,12 +100,10 @@ cp /tmp/Arch_I3/dotfiles/bash_profile /home/$USUARIO/.bash_profile
 cp /tmp/Arch_I3/dotfiles/Xresources /home/$USUARIO/.Xresources
 cp /tmp/Arch_I3/dotfiles/xinitrc /home/$USUARIO/.xinitrc
 cp /tmp/Arch_I3/dotfiles/bashrc /home/$USUARIO/.bashrc
-cp /tmp/Arch_I3/dotfiles/vimrc /home/$USUARIO/.vimrc
 chmod 666 /home/$USUARIO/.bash_profile
 chmod 666 /home/$USUARIO/.Xresources
 chmod 666 /home/$USUARIO/.xinitrc
 chmod 666 /home/$USUARIO/.bashrc
-chmod 666 /home/$USUARIO/.vimrc
 
 #Case insensitive para autocompletado en bash
 touch /home/$USUARIO/.inputrc
@@ -107,7 +111,7 @@ echo "set completion-ignore-case on" >> /home/$USUARIO/.inputrc
 #Quitar el beep de error
 echo "set bell-style none" >> /home/$USUARIO/.inputrc
 
-#Asigno nuevo propietario 
+#Asigno nuevo propietario
 chown -R $USUARIO:$USUARIO /home/$USUARIO
 
 #Istalar polybar desde github
@@ -119,17 +123,18 @@ cmake ..
 make install
 cd /
 
-#Guardo el script post-install.sh e install-latex.sh
-cp /tmp/Arch_I3/install-latex.sh /home/$USUARIO/
+#Guardo el script post-install.sh
 cp /tmp/Arch_I3/post-install.sh /home/$USUARIO/
-chown $USUARIO:$USUARIO /home/$USUARIO/install-latex.sh
 chown $USUARIO:$USUARIO /home/$USUARIO/post-install.sh
-chmod 777 /home/$USUARIO/install-latex.sh
 chmod 777 /home/$USUARIO/post-install.sh
 
-#Elimino el repositorio clonado
+#Creo carpetas del usuario
+sudo pacman -S --noconfirm xdg-user-dirs
+xdg-user-dirs-update
+
+#Elimino los repositorios clonados
 rm -r /tmp/Arch_I3
 rm -r /tmp/polybar
 
 #Salir
-exit 0
+exit
