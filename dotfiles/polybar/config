@@ -43,7 +43,7 @@ border-bottom-size = 2
 border-color = #00000000
 
 padding-left = 1
-padding-right = 1
+padding-right = 0
 
 module-margin-left = 0
 module-margin-right = 0
@@ -60,7 +60,7 @@ modules-right = powermenu battery
 
 tray-position = right
 tray-detached = false
-tray-padding = 2
+tray-padding = 0
 tray-transparent = false
 tray-background = ${colors.background}
 tray-offset-x = 0

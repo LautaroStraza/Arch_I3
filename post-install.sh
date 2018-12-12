@@ -7,8 +7,13 @@
 # /____/ \__//_/    \__,_/  /___/\__,_/
 #
 
+#Nombre
+NOMBRE=$(whoami)
+
 #Instalar virtualbox guest additions
 sudo pacman -S --noconfirm virtualbox-guest-modules-arch virtualbox-guest-utils
+sudo systemctl enable vboxservice
+sudo usermod -a -G vboxsf NOMBRE
 
 #Desmutear alsa
 amixer sset Master unmute

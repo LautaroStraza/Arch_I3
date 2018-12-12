@@ -7,4 +7,4 @@
 # /____/ \__//_/    \__,_/  /___/\__,_/
 #
 
-i3lock -n -i /usr/share/wallpapers/Lock_Wall.png
+systemctl suspend && i3lock -n -i /usr/share/wallpapers/Lock_Wall.png

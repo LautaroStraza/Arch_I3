@@ -66,7 +66,7 @@ bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-# Sreen brightness controls #Control de brillo de pantalla
+# Control de brillo de pantalla
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 20 # decrease screen brightness
 
@@ -75,16 +75,16 @@ bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 20 # decrease
 #---------------------#
 
 # Variables para nombrar los escritorios
-set $wsp1 " 1"
-set $wsp2 " 2"
-set $wsp3 " 3"
-set $wsp4 " 4"
-set $wsp5 " 5"
-set $wsp6 " 6"
-set $wsp7 " 7"
-set $wsp8 " 8"
-set $wsp9 " 9"
-set $wsp10 " 10"
+set $wsp1 "1"
+set $wsp2 "2"
+set $wsp3 "3"
+set $wsp4 "4"
+set $wsp5 "5"
+set $wsp6 "6"
+set $wsp7 "7"
+set $wsp8 "8"
+set $wsp9 "9"
+set $wsp10 "10"
 
 # Switch to workspace
 bindsym $mod+1 workspace $wsp1
@@ -209,18 +209,8 @@ for_window [class="Arandr"] floating enable
 # Para poder usar transparencia en las ventanas intalar compton
 exec_always --no-startup-id killall compton; compton -f
 
-# Para iniciar icono de bateria
-##exec --no-startup-id killall cbatticon ; cbatticon &
-
-# Para iniciar caffeine
-#exec --no-startup-id killall caffeine ; caffeine &
-
-# Owncloud
-#exec --no-startup-id killall owncloud ; owncloud &
-
 # Network Manager
-#exec --no-startup-id killall nm-applet ; nm-applet &
-#exec_always --no-startup-id nm-applet &
+exec --no-startup-id killall nm-applet ; nm-applet &
 
 #---------#
 # Scripts #

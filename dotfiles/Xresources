@@ -61,7 +61,7 @@ URxvt*termName:         rxvt-unicode
 URxvt*title:            Urxvt
 URxvt*transparent:      false
 URxvt*depth:            32
-URxvt.background:       [90]#151d22
+URxvt.background:       [95]#151d22
 
 ! Extras
 URxvt.keysym.Control-p:   perl:clipboard:paste
