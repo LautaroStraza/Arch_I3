@@ -13,7 +13,7 @@ NOMBRE=$(whoami)
 #Instalar virtualbox guest additions
 sudo pacman -S --noconfirm virtualbox-guest-modules-arch virtualbox-guest-utils
 sudo systemctl enable vboxservice
-sudo usermod -a -G vboxsf NOMBRE
+sudo usermod -a -G vboxsf ${NOMBRE}
 
 #Desmutear alsa
 amixer sset Master unmute
@@ -26,7 +26,12 @@ cd ~/vimrc
 cd ~
 rm -rf ~/vimrc
 
-#Ejecutar arandr para ajustar la resolución de pantalla
+#Rankmirrors (ejecutar los siguientes comandos como root)
+#cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
+#pacman -S pacman-contrib
+#rankmirrors -n 6 /etc/pacman.d/mirrorlist.backup > /etc/pacman.d/mirrorlist
+
+#Saludo
 clear
 echo "    _____  __"
 echo "   / ___/ / /_ _____ ____ _ ____  ____ _"
@@ -37,8 +42,10 @@ echo
 echo
 echo
 echo
-echo "Si necesita cambiar la resolución de la pantalla"
-echo "               ejecute arandr"
+echo "Algunas recomendaciones:"
+echo "              -Para cambiar la resolución de la pantalla"
+echo "                  ejecute arandr."
+echo "              -Es muy recomendable ejecutar rankmirrors."
 echo
 echo
 echo "Lautaro Straza, Dews!"
