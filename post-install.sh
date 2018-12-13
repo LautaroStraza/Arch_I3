@@ -45,6 +45,8 @@ echo
 echo "Algunas recomendaciones:"
 echo "              -Para cambiar la resolución de la pantalla"
 echo "                  ejecute arandr."
+echo "              -Reiniciar para el automontado de carpetas"
+echo "                  compartidas."
 echo "              -Es muy recomendable ejecutar rankmirrors."
 echo
 echo
