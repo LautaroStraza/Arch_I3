@@ -14,6 +14,8 @@ NOMBRE=$(whoami)
 sudo pacman -S --noconfirm virtualbox-guest-modules-arch virtualbox-guest-utils
 sudo systemctl enable vboxservice
 sudo usermod -a -G vboxsf ${NOMBRE}
+sudo mkdir /media
+sudo chmod 666 /media
 
 #Desmutear alsa
 amixer sset Master unmute
