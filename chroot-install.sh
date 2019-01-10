@@ -51,7 +51,7 @@ echo "${USUARIO}:${CLAVE}" | chpasswd
 pacman -S --noconfirm sudo
 sed -i 's/^# %wheel ALL=(ALL) NOPASSWD: ALL/%wheel ALL=(ALL) NOPASSWD: ALL/' /etc/sudoers
 
-#Configuro Pacman#
+#Configuro Pacman
 
 #Agrego repositorios 32bits
 echo " " >> /etc/pacman.conf
@@ -79,27 +79,28 @@ fc-cache
 #Habilito servicios
 systemctl enable acpid.service
 systemctl enable dhcpcd.service
+systemctl enable NetworkManager.service
 
 #Clono el repositorio
 pacman -S --noconfirm git
-git clone https://github.com/LautaroStraza/Arch_I3 /tmp/Arch_I3
+git clone https://github.com/lautarostraza/arch-i3 /tmp/arch-i3
 
 #Guardo los wallpapers
 mkdir /usr/share/wallpapers
-cp /tmp/Arch_I3/imagenes/* /usr/share/wallpapers
+cp /tmp/arch-i3/imagenes/* /usr/share/wallpapers
 chmod -R 777 /usr/share/wallpapers
 
 #Guardo dotfiles
 mkdir /home/$USUARIO/.config
-cp -R /tmp/Arch_I3/dotfiles/i3 /home/$USUARIO/.config
-cp -R /tmp/Arch_I3/dotfiles/polybar /home/$USUARIO/.config
+cp -R /tmp/arch-i3/dotfiles/i3 /home/$USUARIO/.config
+cp -R /tmp/arch-i3/dotfiles/polybar /home/$USUARIO/.config
 chmod +x /home/$USUARIO/.config/i3/*.sh
 chmod +x /home/$USUARIO/.config/polybar/*.sh
 
-cp /tmp/Arch_I3/dotfiles/bash_profile /home/$USUARIO/.bash_profile
-cp /tmp/Arch_I3/dotfiles/Xresources /home/$USUARIO/.Xresources
-cp /tmp/Arch_I3/dotfiles/xinitrc /home/$USUARIO/.xinitrc
-cp /tmp/Arch_I3/dotfiles/bashrc /home/$USUARIO/.bashrc
+cp /tmp/arch-i3/dotfiles/bash_profile /home/$USUARIO/.bash_profile
+cp /tmp/arch-i3/dotfiles/Xresources /home/$USUARIO/.Xresources
+cp /tmp/arch-i3/dotfiles/xinitrc /home/$USUARIO/.xinitrc
+cp /tmp/arch-i3/dotfiles/bashrc /home/$USUARIO/.bashrc
 chmod 666 /home/$USUARIO/.bash_profile
 chmod 666 /home/$USUARIO/.Xresources
 chmod 666 /home/$USUARIO/.xinitrc
@@ -114,27 +115,12 @@ echo "set bell-style none" >> /home/$USUARIO/.inputrc
 #Asigno nuevo propietario
 chown -R $USUARIO:$USUARIO /home/$USUARIO
 
-#Istalar polybar desde github
-pacman -S --noconfirm python2 cairo libxcb xcb-proto xcb-util-image xcb-util-wm cmake gcc
-git clone --recursive https://github.com/jaagr/polybar /tmp/polybar
-mkdir /tmp/polybar/build
-cd /tmp/polybar/build
-cmake ..
-make install
-cd /
-
-#Guardo el script post-install.sh
-cp /tmp/Arch_I3/post-install.sh /home/$USUARIO/
-chown $USUARIO:$USUARIO /home/$USUARIO/post-install.sh
-chmod 777 /home/$USUARIO/post-install.sh
-
-#Creo carpetas del usuario
-sudo pacman -S --noconfirm xdg-user-dirs
-xdg-user-dirs-update
+#Ejecuto el script user-install.sh como el nuevo usuario
+chmod +x /tmp/arch-i3/user-install.sh
+su $USUARIO /tmp/arch-i3/user-install.sh
 
 #Elimino los repositorios clonados
-rm -r /tmp/Arch_I3
-rm -r /tmp/polybar
+rm -r /tmp/arch-i3
 
 #Salir
 exit

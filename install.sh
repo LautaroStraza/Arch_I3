@@ -88,6 +88,14 @@ echo
 echo "La instalación terminó, recordá quitar el disco de instalación Arch.iso"
 echo "		antes de volver a iniciar la máquina virtual"
 echo
+echo
+echo "Algunas recomendaciones:"
+echo "              -Para cambiar la resolución de la pantalla"
+echo "                  ejecute arandr."
+echo "              -Reiniciar para el automontado de carpetas"
+echo "                  compartidas."
+echo "              -Es muy recomendable ejecutar rankmirrors."
+echo
 echo "Lautaro Straza, Dews!"
 read
 
