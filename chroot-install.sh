@@ -69,7 +69,7 @@ pacman -S --noconfirm xorg xorg-xinit xorg-xrdb xautolock numlockx xorg-xrandr \
 	i3 i3lock rofi dmenu ranger feh chromium pepper-flash rxvt-unicode \
 	urxvt-perls acpid compton cbatticon ttf-anonymous-pro ttf-dejavu \
 	ttf-font-awesome otf-font-awesome awesome-terminal-fonts gvim net-tools wget \
-	curl tree screenfetch neofetch zathura zip unzip mpd vlc libsecret \
+	curl tree screenfetch neofetch evince zip unzip mpd vlc libsecret \
     gnome-icon-theme gnome-keyring network-manager-applet
 
 #Para actualizar cache de fuentes

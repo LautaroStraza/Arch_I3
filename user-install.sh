@@ -24,27 +24,28 @@ amixer sset Master unmute
 sudo pacman -S --noconfirm xdg-user-dirs
 sudo xdg-user-dirs-update
 
+#Instalar barra de tareas (polybar??)
+#
+#
+#
+#
+#
+#
+#
+
 #Instalación de vimrc
 sudo pacman -S --noconfirm gvim git dialog
 git clone https://github.com/lautarostraza/vimrc ~/vimrc
 chmod +x ~/vimrc/install.sh
 cd ~/vimrc
 ./install.sh
-sudo cp remap.sh /usr/local/bin/remap.sh
+./remap-install.sh
 cd ~
 rm -rf ~/vimrc
 
 #Guardo script rankmirrors
-sudo cp /tmp/arch-i3/rankmirrors.sh /usr/local/bin/rankmirrors.sh
-
-#Istalar polybar desde github
-#pacman -S --noconfirm python2 cairo libxcb xcb-proto xcb-util-image xcb-util-wm cmake gcc
-#git clone --recursive https://github.com/jaagr/polybar /tmp/polybar
-#mkdir /tmp/polybar/build
-#cd /tmp/polybar/build
-#cmake ..
-#make install
-#cd /
+sudo cp /tmp/arch-i3/dotfiles/rankmirrors.sh /usr/local/bin/rankmirrors.sh
+sudo chmod +x /usr/local/bin/rankmirrors.sh
 
 #Salir
 exit
