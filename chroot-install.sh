@@ -40,7 +40,7 @@ sed -i 's/^GRUB_TIMEOUT=5/GRUB_TIMEOUT=0/' /etc/default/grub
 grub-mkconfig -o /boot/grub/grub.cfg
 
 #Complementos para wifi
-pacman -S --noconfirm wpa_supplicant ifplugd wpa_actiond dialog iw networkmanager
+pacman -S --noconfirm wpa_supplicant ifplugd dialog iw networkmanager
 systemctl enable NetworkManager.service
 
 #Creación del usuario#
@@ -83,7 +83,7 @@ systemctl enable NetworkManager.service
 
 #Clono el repositorio
 pacman -S --noconfirm git
-git clone https://github.com/lautarostraza/arch-i3 /tmp/arch-i3
+git clone https://github.com/lautarobarba/arch-i3 /tmp/arch-i3
 
 #Guardo los wallpapers
 mkdir /usr/share/wallpapers
@@ -118,9 +118,6 @@ chown -R $USUARIO:$USUARIO /home/$USUARIO
 #Ejecuto el script user-install.sh como el nuevo usuario
 chmod +x /tmp/arch-i3/user-install.sh
 su $USUARIO /tmp/arch-i3/user-install.sh
-
-#Elimino los repositorios clonados
-rm -r /tmp/arch-i3
 
 #Salir
 exit
