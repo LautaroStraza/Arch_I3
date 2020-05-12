@@ -15,8 +15,6 @@ echo "  ___/ // /_ / /   / /_/ /  / /_/ /_/ /"
 echo " /____/ \__//_/    \__,_/  /___/\__,_/"
 echo
 echo "Bienvenido a la instalación de Arch Linux + I3 "
-echo "      Está bastante copada la versión "
-echo "        asi que disfrutala guachin."
 echo
 echo
 echo
@@ -39,8 +37,8 @@ while  [ "$OPCION" = "N" ] || [ "$OPCION" = "n" ]; do
     read OPCION
 done
 echo
-#Se guardó el nombre en NOMBRE
-#Se guardó la clave en CLAVE
+#Se guardó el nombre de usuario
+#Se guardó la clave de usuario
 
 #Configuro la hora del sistema
 timedatectl set-ntp true
