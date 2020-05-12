@@ -24,4 +24,8 @@ Automatización de la instalación de Arch + I3 en una máquina virtual.
 	$ ./install.sh
 ```
 
+### Antes de usar:
+**No olvidar quitar el Controlador IDE desde las configuraciones.**
+    - Almacenamiento -> Controlador IDE -> Arch_Linux.iso -> Eliminar Conexión
+
 El script esta basado en el trabajo de https://github.com/abrochard/spartan-arch. Dews!
