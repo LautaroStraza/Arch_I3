@@ -9,7 +9,7 @@ Automatización de la instalación de Arch + I3 en una máquina virtual.
 	- Memoria RAM: 1024 MB.
 	- Un disco duro virtual:
 		-Tipo vdi, reservado dinámicamente.
-		-20 GB.
+		-10 GB.
 
 ### Configuraciones:
 	- Pantalla -> Memoria de video: 128 MB.
